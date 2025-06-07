@@ -1,0 +1,17 @@
+@use "@/app/scss/abstracts" as *;
+
+#Header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: rem(80);
+  @include full_width;
+
+  @include breakpoint(large) {
+    height: rem(100);
+  }
+
+  img {
+    height: rem(60);
+  }
+}

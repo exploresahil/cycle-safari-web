@@ -1,0 +1,36 @@
+@use "@/app/scss/abstracts" as *;
+
+#DesktopNav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: rem(20);
+
+  .nav_item {
+    position: relative;
+
+    .nav_item_label {
+      cursor: pointer;
+      display: flex;
+      gap: rem(6);
+      align-items: center;
+    }
+
+    .nav_item_submenu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: fit-content;
+      background-color: $c_card_primary;
+      padding: rem(12);
+      display: flex;
+      flex-direction: column;
+      gap: rem(12);
+
+      a,
+      p {
+        width: max-content;
+      }
+    }
+  }
+}

@@ -1,0 +1,61 @@
+@use "@/app/scss/abstracts" as *;
+
+#MobileNav {
+  nav {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    inset: 0;
+    background-color: $c_secondary;
+    display: flex;
+    gap: 5vh;
+    flex-direction: column;
+    padding-block: rem(20);
+    @include full_width;
+    color: $c_text_light;
+
+    .close_btn {
+      margin-left: auto;
+    }
+
+    .nav_list {
+      overflow-x: visible;
+      overflow-y: scroll;
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: rem(12);
+
+      .nav_item {
+        display: flex;
+        gap: rem(12);
+        align-items: center;
+      }
+
+      li {
+        display: flex;
+        flex-direction: column;
+        gap: rem(12);
+      }
+
+      ul {
+        margin-left: rem(24);
+        list-style: disc;
+      }
+
+      .submenu,
+      .sub_submenu {
+        overflow-y: clip;
+      }
+
+      a,
+      p {
+        font-size: rem(18);
+      }
+    }
+  }
+}
