@@ -1,0 +1,82 @@
+@use "@/app/scss/abstracts" as *;
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba($c_secondary, 0.4);
+  }
+
+  70% {
+    box-shadow: 0 0 0 10px rgba($c_secondary, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba($c_secondary, 0);
+  }
+}
+
+#Sounds {
+  .sounds_container {
+    display: flex;
+    gap: rem(20);
+
+    .button-wrapper {
+      position: relative;
+      width: rem(60);
+      height: rem(60);
+      cursor: pointer;
+
+      .progress-ring {
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: rotate(-90deg);
+
+        &__circle {
+          transition: stroke-dashoffset 0.1s ease-in-out;
+        }
+      }
+
+      &:first-child .progress-ring__circle {
+        stroke: $c_secondary;
+      }
+
+      &:last-child .progress-ring__circle {
+        stroke: $c_secondary;
+      }
+
+      button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: rem(50);
+        aspect-ratio: 1;
+        color: hsl(from $c_dark h s l / 0.5);
+        border-radius: 50%;
+        border: rem(2) solid hsl(from $c_dark h s l / 0.25);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: transparent;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        animation: pulse 2s infinite;
+
+        @include breakpoint(large) {
+          &:hover {
+            transform: translate(-50%, -50%) scale(1.1);
+            border-color: $c_secondary;
+            color: $c_secondary;
+            animation: none;
+          }
+        }
+
+        &.playing {
+          color: $c_secondary;
+          animation: none;
+          box-shadow: 0 0 15px rgba($c_secondary, 0.3);
+        }
+      }
+    }
+  }
+}

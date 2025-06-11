@@ -1,0 +1,152 @@
+@use "@/app/scss/abstracts" as *;
+
+#CarouselHero {
+  width: 100vw;
+  padding-block: 5% 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @include breakpoint(large) {
+    padding-block: 2% 3%;
+  }
+
+  @include breakpoint(xlarge) {
+    padding-block: 1% 1.5%;
+  }
+
+  .carosel_container {
+    width: 100%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+
+    @include breakpoint(large) {
+      height: 94%;
+    }
+  }
+
+  .carousel_item {
+    width: 84%;
+    height: 100%;
+    position: absolute;
+    will-change: transform;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-block: rem(36);
+    transition: z-index 0s linear 0.5s;
+
+    @include breakpoint(large) {
+      width: 90%;
+    }
+
+    &.center {
+      z-index: 3;
+      transition-delay: 0s;
+    }
+
+    &.left {
+      z-index: 2;
+    }
+
+    &.right {
+      z-index: 1;
+    }
+
+    img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: inherit;
+      object-position: 50% 75%;
+    }
+
+    .bg_overlay {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(
+        rgba(0, 0, 0, 0) 50%,
+        rgba(0, 0, 0, 0.9) 100%
+      );
+      z-index: 3;
+    }
+
+    h2 {
+      position: relative;
+      z-index: 4;
+      width: fit-content;
+      height: fit-content;
+      font-size: rem(16);
+      @include f_gothic_a1_regular;
+      font-style: italic;
+      color: $c_light;
+      max-width: 80%;
+      text-align: center;
+
+      @include breakpoint(large) {
+        font-size: rem(20);
+      }
+    }
+  }
+
+  .nav_btn {
+    position: absolute;
+    z-index: 5;
+    border-radius: 50%;
+    padding: rem(12);
+    background-color: rgba(255, 255, 255, 0.5);
+    color: $c_secondary;
+  }
+
+  .previous_button {
+    left: 10%;
+  }
+
+  .next_button {
+    right: 10%;
+  }
+
+  .pagination {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: rem(12);
+
+    @include breakpoint(xlarge) {
+      gap: rem(16);
+    }
+
+    .dot {
+      position: relative;
+      width: rem(19);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background-color: transparent;
+      border: rem(2) solid $c_dark;
+      transition: background-color 0.5s ease-in-out, border 0.5s ease-in-out;
+
+      @include breakpoint(large) {
+        width: rem(16);
+        aspect-ratio: 1;
+      }
+
+      @include breakpoint(xlarge) {
+        width: rem(20);
+      }
+
+      &_active {
+        background-color: $c_dark;
+        border: rem(2) solid transparent;
+      }
+    }
+  }
+}

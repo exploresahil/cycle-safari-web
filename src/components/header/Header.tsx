@@ -4,16 +4,25 @@ import "./style.scss";
 import useResponsive from "@/hooks/useResponsive";
 import MobileNav from "./mobile/MobileNav";
 import DesktopNav from "./desktop/DesktopNav";
+import { headerHeight } from "@/constants/header";
+import Link from "next/link";
 
 const Header = () => {
-  const { isMounted, isLaptop } = useResponsive();
+  const { isMounted, isLaptop, isDesktop } = useResponsive();
 
   if (!isMounted) return null;
 
   return (
-    <header id="Header">
-      <img src="/assets/logo/cycle_safari.png" alt="Cycle Safari" />
-      {isLaptop ? <DesktopNav /> : <MobileNav />}
+    <header
+      id="Header"
+      style={{
+        height: isLaptop ? headerHeight.laptop : headerHeight.mobile,
+      }}
+    >
+      <Link href="/" className="logo">
+        CYCLE SAFARI
+      </Link>
+      {isLaptop ? <DesktopNav /> : isDesktop ? <DesktopNav /> : <MobileNav />}
     </header>
   );
 };

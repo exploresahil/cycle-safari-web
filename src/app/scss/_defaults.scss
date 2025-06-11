@@ -9,10 +9,14 @@
 }
 
 body {
+  width: 100vw;
   font-family: "Arial", sans-serif;
   font-family: $f_gothic_a1;
   color: $c_text_primary;
   background-color: $c_background_primary;
+  overflow-x: hidden;
+  overflow-x: clip;
+  overflow-y: visible;
 }
 
 img,
@@ -60,6 +64,19 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+h1 {
+  @include f_gothic_a1_extrabold;
+}
+
+h3 {
+  @include f_gothic_a1_regular;
+}
+
+p {
+  line-height: 1.5;
+  @include f_gothic_a1_semibold;
 }
 
 /* 

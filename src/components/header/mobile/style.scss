@@ -12,8 +12,8 @@
     gap: 5vh;
     flex-direction: column;
     padding-block: rem(20);
-    @include full_width;
     color: $c_text_light;
+    @include full_width;
 
     .close_btn {
       margin-left: auto;
@@ -34,6 +34,10 @@
         display: flex;
         gap: rem(12);
         align-items: center;
+
+        p {
+          @include f_gothic_a1_regular;
+        }
       }
 
       li {

@@ -1,0 +1,41 @@
+@use "@/app/scss/abstracts" as *;
+
+#WhyCtcle {
+  padding-block: rem(10) rem(20);
+  display: flex;
+  flex-direction: column;
+  gap: rem(28);
+  @include full_width;
+
+  @include breakpoint(large) {
+    padding-block: rem(50);
+    flex-direction: row;
+    justify-content: space-between;
+    gap: rem(50);
+  }
+
+  .title_container {
+    display: flex;
+    flex-direction: column;
+    gap: rem(10);
+
+    p {
+      @include breakpoint(large) {
+        max-width: 60ch;
+      }
+    }
+  }
+
+  .differences {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: rem(20);
+
+    .title {
+      display: flex;
+      gap: rem(8);
+      font-style: italic;
+    }
+  }
+}

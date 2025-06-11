@@ -4,11 +4,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: rem(80);
+  position: relative;
+  z-index: 100;
   @include full_width;
 
-  @include breakpoint(large) {
-    height: rem(100);
+  .logo {
+    @include f_gothic_a1_extrabold;
+    font-style: italic;
   }
 
   img {
