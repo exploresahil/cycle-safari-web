@@ -21,7 +21,7 @@ export const FeaturedData: FeaturedTypes[] = [
         value: "Balaghat, MP",
       },
       {
-        title: "Toor Cost",
+        title: "Tour Cost",
         value: "30,000",
       },
     ],
@@ -50,7 +50,7 @@ export const FeaturedData: FeaturedTypes[] = [
         value: "Shimla",
       },
       {
-        title: "Toor Cost",
+        title: "Tour Cost",
         value: "69,000",
       },
     ],
@@ -79,7 +79,7 @@ export const FeaturedData: FeaturedTypes[] = [
         value: "Sillari",
       },
       {
-        title: "Toor Cost",
+        title: "Tour Cost",
         value: "15,000",
       },
     ],
