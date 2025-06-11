@@ -1,7 +1,7 @@
 import { BsFillPlayFill, BsPauseFill } from "react-icons/bs";
-import { UnscriptedMomentsDataTypes } from "./data.db";
 import useResponsive from "@/hooks/useResponsive";
 import { useRef, useEffect } from "react";
+import { UnscriptedMomentsDataTypes } from "@/types";
 
 const UnscriptedVideo = ({
   data,

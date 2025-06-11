@@ -1,0 +1,44 @@
+@use "@/app/scss/abstracts" as *;
+
+#CardButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include f_gothic_a1_semibold;
+}
+
+.primary {
+  width: 100%;
+  background-color: $c_secondary;
+  color: $c_light;
+  padding: rem(12) rem(16);
+
+  @include breakpoint(large) {
+    font-size: rem(14);
+
+    transition: background-color 0.3s ease-in-out;
+
+    &:hover {
+      background-color: $c_dark;
+    }
+  }
+}
+
+.secondary {
+  width: 100%;
+  background-color: transparent;
+  color: $c_secondary;
+  border: $c_stroke_primary;
+
+  padding: rem(12) rem(16);
+
+  @include breakpoint(medium) {
+    padding: rem(12) rem(50);
+    width: fit-content;
+  }
+
+  @include breakpoint(large) {
+    padding: rem(12) rem(60);
+    font-size: rem(14);
+  }
+}

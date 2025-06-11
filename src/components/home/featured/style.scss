@@ -1,0 +1,37 @@
+@use "@/app/scss/abstracts" as *;
+
+#Featured {
+  padding-block: rem(20);
+  display: flex;
+  flex-direction: column;
+  gap: rem(12);
+  @include full_width;
+
+  .featured_cards {
+    display: flex;
+    flex-direction: column;
+    gap: rem(24);
+
+    @include breakpoint(medium) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: rem(24);
+    }
+
+    @include breakpoint(large) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include breakpoint(xlarge) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .secondary {
+    align-self: center;
+
+    @include breakpoint(large) {
+      margin-top: rem(14);
+    }
+  }
+}

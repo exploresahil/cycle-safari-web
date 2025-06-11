@@ -1,7 +1,8 @@
 "use client";
 
-import "./style.scss";
 import { unscriptedMomentsData } from "./data.db";
+import "./style.scss";
+
 import UnscriptedVideo from "./UnscriptedVideo";
 import { useState, useRef, MouseEvent } from "react";
 

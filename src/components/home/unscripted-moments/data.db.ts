@@ -1,8 +1,4 @@
-export type UnscriptedMomentsDataTypes = {
-  title: string;
-  inFrame: string;
-  videoUrl: string;
-};
+import { UnscriptedMomentsDataTypes } from "@/types";
 
 export const unscriptedMomentsData: UnscriptedMomentsDataTypes[] = [
   {
@@ -17,7 +13,7 @@ export const unscriptedMomentsData: UnscriptedMomentsDataTypes[] = [
   },
   {
     title: "Khana",
-    inFrame: "Rohit Sharma",
+    inFrame: "Rohit Choudhari",
     videoUrl: "https://assets.mixkit.co/videos/3661/3661-720.mp4",
   },
   {
@@ -32,7 +28,7 @@ export const unscriptedMomentsData: UnscriptedMomentsDataTypes[] = [
   },
   {
     title: "Khana",
-    inFrame: "Rohit Sharma",
+    inFrame: "Rohit Choudhari",
     videoUrl: "https://assets.mixkit.co/videos/3661/3661-720.mp4",
   },
 ];
