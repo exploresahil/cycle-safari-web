@@ -149,7 +149,7 @@ const CarouselHero = ({
       style={{
         height: isLaptop
           ? `calc(100vh - ${headerHeight.laptop})`
-          : `calc(100svh - ${headerHeight.mobile})`,
+          : `calc(100vh - ${headerHeight.mobile})`,
       }}
     >
       <LazyMotion features={loadFeatures} strict>
