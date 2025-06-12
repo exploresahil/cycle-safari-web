@@ -13,7 +13,7 @@ body {
   font-family: "Arial", sans-serif;
   font-family: $f_gothic_a1;
   color: $c_text_primary;
-  background-color: $c_background_primary;
+  background-color: $c_dark;
   overflow-x: hidden;
   overflow-x: clip;
   overflow-y: visible;
@@ -68,6 +68,11 @@ button {
 
 h1 {
   @include f_gothic_a1_extrabold;
+  color: $c_primary;
+}
+
+h2 {
+  color: $c_primary;
 }
 
 h3 {

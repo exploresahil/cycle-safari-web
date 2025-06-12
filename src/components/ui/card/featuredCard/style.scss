@@ -30,6 +30,10 @@
       }
     }
 
+    p {
+      @include f_gothic_a1_regular;
+    }
+
     p:nth-of-type(1) {
       opacity: 0.75;
       font-size: rem(14);
@@ -63,7 +67,7 @@
 
         h3,
         p {
-          @include f_gothic_a1_semibold;
+          @include f_gothic_a1_regular;
           font-size: rem(16);
         }
 

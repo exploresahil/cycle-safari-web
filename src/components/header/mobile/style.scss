@@ -1,6 +1,10 @@
 @use "@/app/scss/abstracts" as *;
 
 #MobileNav {
+  .menu_btn {
+    color: $c_primary;
+  }
+
   nav {
     position: fixed;
     width: 100%;

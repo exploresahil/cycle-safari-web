@@ -16,10 +16,11 @@
   @include breakpoint(large) {
     font-size: rem(14);
 
-    transition: background-color 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out, color 0.2s ease-in-out;
 
     &:hover {
-      background-color: $c_dark;
+      background-color: $c_light;
+      color: $c_secondary;
     }
   }
 }
@@ -27,8 +28,8 @@
 .secondary {
   width: 100%;
   background-color: transparent;
-  color: $c_secondary;
-  border: $c_stroke_primary;
+  color: $c_primary;
+  border: $c_stroke_secondary;
 
   padding: rem(12) rem(16);
 

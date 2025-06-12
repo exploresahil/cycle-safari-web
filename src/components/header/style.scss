@@ -11,6 +11,7 @@
   .logo {
     @include f_gothic_a1_extrabold;
     font-style: italic;
+    color: $c_primary;
   }
 
   img {

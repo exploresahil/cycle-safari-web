@@ -53,7 +53,7 @@ const MobileNav = () => {
 
   return (
     <div id="MobileNav">
-      <button onClick={() => setIsOpen(true)}>
+      <button className="menu_btn" onClick={() => setIsOpen(true)}>
         <AlignJustify size={30} />
       </button>
       <AnimatePresence initial={false}>

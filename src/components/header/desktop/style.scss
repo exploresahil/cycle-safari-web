@@ -8,11 +8,11 @@
   height: 100%;
 
   .nav_link {
-    color: $c_dark;
+    color: $c_light;
     transition: color 0.3s ease;
 
     &:hover {
-      color: $c_secondary;
+      color: $c_primary;
     }
   }
 
@@ -27,7 +27,7 @@
       display: flex;
       gap: rem(6);
       align-items: center;
-      color: $c_dark;
+      color: $c_light;
       transition: color 0.3s ease;
 
       p {
@@ -39,13 +39,13 @@
       }
 
       &:hover {
-        color: $c_secondary;
+        color: $c_primary;
       }
     }
 
     &.active {
       .nav_item_label {
-        color: $c_secondary;
+        color: $c_primary;
 
         svg.rotated {
           transform: rotate(-180deg);
@@ -70,7 +70,7 @@
       }
 
       .nav_item_submenu {
-        background-color: $c_light;
+        background-color: $c_dark;
         border-radius: rem(8);
         padding: rem(12);
         min-width: rem(200);
@@ -80,14 +80,14 @@
         gap: rem(8);
 
         .submenu_link {
-          color: $c_dark;
+          color: $c_light;
           padding: rem(8) rem(12);
           border-radius: rem(4);
           transition: all 0.3s ease;
 
           &:hover {
-            background-color: rgba($c_secondary, 0.1);
-            color: $c_secondary;
+            background-color: rgba($c_light, 0.1);
+            color: $c_primary;
           }
         }
 
@@ -101,7 +101,7 @@
             padding: rem(8) rem(12);
             cursor: pointer;
             border-radius: rem(4);
-            color: $c_dark;
+            color: $c_light;
             transition: all 0.3s ease;
 
             p {
@@ -113,15 +113,15 @@
             }
 
             &:hover {
-              background-color: rgba($c_secondary, 0.1);
-              color: $c_secondary;
+              background-color: rgba($c_light, 0.1);
+              color: $c_primary;
             }
           }
 
           &.active {
             .submenu_item_label {
-              background-color: rgba($c_secondary, 0.1);
-              color: $c_secondary;
+              background-color: rgba($c_light, 0.1);
+              color: $c_primary;
 
               svg.rotated {
                 transform: rotate(-90deg);
@@ -130,7 +130,7 @@
           }
 
           .sub_submenu_container {
-            background-color: $c_light;
+            background-color: $c_dark;
             position: absolute;
             top: 0;
             left: 100%;
@@ -152,12 +152,12 @@
               display: block;
               white-space: nowrap;
               padding: rem(8) rem(12);
-              color: $c_dark;
+              color: $c_light;
               border-radius: rem(4);
 
               &:hover {
-                background-color: rgba($c_secondary, 0.1);
-                color: $c_secondary;
+                background-color: rgba($c_light, 0.1);
+                color: $c_primary;
               }
             }
           }

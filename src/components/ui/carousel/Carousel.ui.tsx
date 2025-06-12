@@ -1,13 +1,16 @@
 "use client";
 
 import "./style.scss";
-import { Variants } from "motion/react";
+import { Variants, LazyMotion } from "motion/react";
+import * as m from "motion/react-m";
 import { useState, useEffect, useCallback } from "react";
-import { motion } from "motion/react";
 import { carouselData } from "./data.tb";
 import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react";
 import useResponsive from "@/hooks/useResponsive";
 import { headerHeight } from "@/constants/header";
+
+// Load features asynchronously
+const loadFeatures = () => import("./features").then((res) => res.default);
 
 interface CarouselProps {
   data?: {
@@ -29,7 +32,17 @@ const CarouselHero = ({
 }: CarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [loadedImages, setLoadedImages] = useState<{ [key: number]: boolean }>(
+    {}
+  );
   const { isMounted, isLaptop, isDesktop } = useResponsive();
+
+  const handleImageLoad = (index: number) => {
+    setLoadedImages((prev) => ({
+      ...prev,
+      [index]: true,
+    }));
+  };
 
   const goToSlide = useCallback(
     (index: number) => {
@@ -111,49 +124,75 @@ const CarouselHero = ({
     },
   };
 
-  if (!isMounted) return null;
+  if (!isMounted)
+    return (
+      <div
+        id="CarouselHero"
+        style={{
+          height: isLaptop
+            ? `calc(100vh - ${headerHeight.laptop})`
+            : `calc(100svh - ${headerHeight.mobile})`,
+        }}
+      >
+        <div className="carosel_container">
+          <div className="carousel_item center">
+            <div className="skeleton" />
+            <div className="bg_overlay" />
+          </div>
+        </div>
+      </div>
+    );
+
   return (
     <div
       id="CarouselHero"
       style={{
         height: isLaptop
           ? `calc(100vh - ${headerHeight.laptop})`
-          : `calc(100vh - ${headerHeight.mobile})`,
+          : `calc(100svh - ${headerHeight.mobile})`,
       }}
     >
-      <div className="carosel_container">
-        {data.map((item, index) => {
-          const position = getPosition(index);
-          return (
-            <motion.div
-              key={index}
-              className={`carousel_item ${position}`}
-              variants={imageVariants}
-              initial={false}
-              animate={position}
-              transition={{ duration: 0.4, ease: "easeInOut" }}
-              onAnimationComplete={() => setIsAnimating(false)}
-            >
-              <div className="bg_overlay" />
-              <img src={item.image} alt={item.title} />
-              <h2>{item.title}</h2>
-            </motion.div>
-          );
-        })}
-        {navigation && (
-          <>
-            <button
-              onClick={handlePrevious}
-              className="nav_btn previous_button"
-            >
-              <ArrowLeftIcon size={20} />
-            </button>
-            <button onClick={handleNext} className="nav_btn next_button">
-              <ArrowRightIcon size={20} />
-            </button>
-          </>
-        )}
-      </div>
+      <LazyMotion features={loadFeatures} strict>
+        <div className="carosel_container">
+          {data.map((item, index) => {
+            const position = getPosition(index);
+            return (
+              <m.div
+                key={index}
+                className={`carousel_item ${position}`}
+                variants={imageVariants}
+                initial={false}
+                animate={position}
+                transition={{ duration: 0.4, ease: "easeInOut" }}
+                onAnimationComplete={() => setIsAnimating(false)}
+              >
+                <div className="skeleton" />
+                <div className="bg_overlay" />
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className={loadedImages[index] ? "loaded" : ""}
+                  onLoad={() => handleImageLoad(index)}
+                />
+                <h2>{item.title}</h2>
+              </m.div>
+            );
+          })}
+          {navigation && (
+            <>
+              <button
+                onClick={handlePrevious}
+                className="nav_btn previous_button"
+              >
+                <ArrowLeftIcon size={20} />
+              </button>
+              <button onClick={handleNext} className="nav_btn next_button">
+                <ArrowRightIcon size={20} />
+              </button>
+            </>
+          )}
+        </div>
+      </LazyMotion>
       {pagination && (
         <div className="pagination">
           {data.map((_, index) => (

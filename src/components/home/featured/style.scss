@@ -7,6 +7,10 @@
   gap: rem(12);
   @include full_width;
 
+  @include breakpoint(xlarge) {
+    padding-block: rem(40);
+  }
+
   .featured_cards {
     display: flex;
     flex-direction: column;

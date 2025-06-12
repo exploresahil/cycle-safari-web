@@ -10,8 +10,8 @@ export const NavData: NavDataType[] = [
     href: "/",
   },
   {
-    label: "The Spiti Escape",
-    href: "/tours/the-spiti-escape",
+    label: "Tour of Kanha",
+    href: "/tours/tour-of-kanha",
   },
   {
     label: "Tours",
