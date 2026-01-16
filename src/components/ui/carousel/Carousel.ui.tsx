@@ -126,14 +126,7 @@ const CarouselHero = ({
 
   if (!isMounted)
     return (
-      <div
-        id="CarouselHero"
-        style={{
-          height: isLaptop
-            ? `calc(100vh - ${headerHeight.laptop})`
-            : `calc(100vh - ${headerHeight.mobile})`,
-        }}
-      >
+      <div id="CarouselHero" className="carouselHero">
         <div className="carosel_container">
           <div className="carousel_item center">
             <div className="skeleton" />

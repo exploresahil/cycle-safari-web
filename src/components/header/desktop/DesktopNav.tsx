@@ -5,11 +5,17 @@ import { NavData } from "../data.db";
 import Link from "next/link";
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import useResponsive from "@/hooks/useResponsive";
+import useAuthStore from "@/store/authStore";
+import { useUser } from "@auth0/nextjs-auth0";
 
 // Debug flag to keep all menus open
 const DEBUG_OPEN_ALL = false;
 
 const DesktopNav = () => {
+  const { isMounted } = useResponsive();
+  const { isLoggedIn, userRole, isLoading } = useAuthStore();
+
   // Initialize all menus as open if in debug mode
   const initialMenuState = DEBUG_OPEN_ALL
     ? NavData.reduce<{ [key: number]: boolean }>((acc, _, index) => {
@@ -61,6 +67,8 @@ const DesktopNav = () => {
       setOpenSubSubmenus((prev) => ({ ...prev, [index]: false }));
     }
   };
+
+  if (!isMounted) return null;
 
   return (
     <nav id="DesktopNav">
@@ -169,6 +177,20 @@ const DesktopNav = () => {
 
         return null;
       })}
+
+      {isLoggedIn ? (
+        <div className="nav_item">
+          <Link href={`/${userRole?.toLowerCase()}-dashboard`}>Dashboard</Link>
+        </div>
+      ) : (
+        <div className="nav_item">
+          {isLoading ? (
+            <div className="nav_item">Loading...</div>
+          ) : (
+            <Link href="/auth/login">Login</Link>
+          )}
+        </div>
+      )}
     </nav>
   );
 };

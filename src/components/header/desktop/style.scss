@@ -165,4 +165,10 @@
       }
     }
   }
+
+  $avatar_size: rem(calc(40));
+  .cl-avatarBox {
+    width: $avatar_size;
+    height: $avatar_size;
+  }
 }

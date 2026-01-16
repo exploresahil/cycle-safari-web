@@ -19,13 +19,26 @@
     color: $c_text_light;
     @include full_width;
 
-    .close_btn {
-      margin-left: auto;
+    .user_btn {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
     }
 
-    .nav_list {
-      overflow-x: visible;
-      overflow-y: scroll;
+    .close_btn {
+      margin-left: auto;
+      align-self: flex-start;
+    }
+
+    .cl-userButton-root {
+      align-self: center;
+    }
+
+    $avatar_size: rem(50);
+    .cl-avatarBox {
+      width: $avatar_size;
+      height: $avatar_size;
     }
 
     ul {

@@ -1,5 +1,13 @@
 @use "@/app/scss/abstracts" as *;
 
+.carouselHero {
+  height: calc(100vh - rem(80));
+
+  @include breakpoint(large) {
+    height: calc(100vh - rem(100));
+  }
+}
+
 #CarouselHero {
   width: 100vw;
   padding-block: 5% 10%;

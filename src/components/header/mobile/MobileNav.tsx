@@ -7,8 +7,11 @@ import Link from "next/link";
 import { useState } from "react";
 import { mobileNavVariants, submenuVariants } from "./anime";
 import { NavData } from "../data.db";
+import useAuthStore from "@/store/authStore";
 
 const MobileNav = () => {
+  const { isLoggedIn, userRole, isLoading } = useAuthStore();
+
   const [isOpen, setIsOpen] = useState(false);
   const [openSubmenus, setOpenSubmenus] = useState<{ [key: number]: boolean }>(
     {}
@@ -187,6 +190,24 @@ const MobileNav = () => {
                   </li>
                 );
               })}
+              {isLoggedIn ? (
+                <li>
+                  <Link
+                    href={`/${userRole?.toLowerCase()}-dashboard`}
+                    onClick={closeAllMenus}
+                  >
+                    Dashboard
+                  </Link>
+                </li>
+              ) : (
+                <li>
+                  {isLoading ? (
+                    "Loading..."
+                  ) : (
+                    <Link href="/auth/login">Login</Link>
+                  )}
+                </li>
+              )}
             </ul>
           </motion.nav>
         )}

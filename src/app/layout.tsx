@@ -4,7 +4,7 @@ import { anton, gothic_a1, anonymous_pro } from "./fonts";
 import seoKeywords from "@/utils/keywords";
 import ReactLenis from "lenis/react";
 import "lenis/dist/lenis.css";
-import Header from "@/components/header/Header";
+import AuthProvider from "@/components/providers/AuthProvider";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -30,8 +30,7 @@ export default function RootLayout({
         <body
           className={`${anton.variable} ${gothic_a1.variable} ${anonymous_pro.variable}`}
         >
-          <Header />
-          {children}
+          <AuthProvider>{children}</AuthProvider>
         </body>
       </ReactLenis>
     </html>
